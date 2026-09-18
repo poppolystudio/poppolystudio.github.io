@@ -1,327 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Poppoly Studio</title>
+    <title>Poppoly Studio | Creative Apps</title>
 
-  <meta name="description"
-        content="Poppoly Studio develops practical and high-quality apps for video creators, animators, and content creators.">
+    <meta name="description"
+          content="Poppoly Studio develops applications for video production, animation, and other creative fields. We provide Timecode Stopwatch.">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-      color: #222;
-      background: #f7f7f7;
-      line-height: 1.7;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    header {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 28px 24px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #fff;
+        }
 
-    .site-title {
-      margin: 0;
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
+        a {
+            color: #333;
+            text-decoration: underline;
+        }
 
-    .language {
-      font-size: 0.9rem;
-      white-space: nowrap;
-    }
+        a:hover {
+            opacity: 0.7;
+        }
 
-    .language a {
-      color: #555;
-      text-decoration: none;
-    }
+        .container {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto;
+        }
 
-    .language a:hover {
-      text-decoration: underline;
-    }
+        header {
+            padding: 70px 0 55px;
+            border-bottom: 1px solid #e5e5e5;
+        }
 
-    .language .current {
-      font-weight: 700;
-      color: #222;
-    }
+        .brand {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
 
-    .hero {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 65px 24px 70px;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 2.3rem;
+            line-height: 1.3;
+            letter-spacing: 0.03em;
+        }
 
-    .hero h1 {
-      margin: 0 0 18px;
-      font-size: 2.5rem;
-      line-height: 1.3;
-      letter-spacing: 0.02em;
-    }
+        header .tagline {
+            margin: 12px 0 0;
+            color: #666;
+            font-size: 1rem;
+        }
 
-    .hero p {
-      margin: 0;
-      max-width: 700px;
-      font-size: 1.1rem;
-      color: #555;
-    }
+        .language {
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
 
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 24px 70px;
-    }
+        main {
+            padding: 10px 0 70px;
+        }
 
-    section {
-      margin-bottom: 55px;
-    }
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
 
-    h2 {
-      margin: 0 0 20px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #ddd;
-      font-size: 1.45rem;
-    }
+        section:last-child {
+            border-bottom: none;
+        }
 
-    h3 {
-      margin: 0 0 12px;
-      font-size: 1.2rem;
-    }
+        h2 {
+            margin: 0 0 22px;
+            font-size: 1.45rem;
+            line-height: 1.4;
+        }
 
-    p {
-      margin: 0 0 16px;
-    }
+        h3 {
+            margin: 25px 0 10px;
+            font-size: 1.1rem;
+        }
 
-    ul {
-      margin: 0 0 18px;
-      padding-left: 1.4em;
-    }
+        p {
+            margin: 0 0 16px;
+        }
 
-    li {
-      margin-bottom: 7px;
-    }
+        .app {
+            padding: 28px;
+            background: #f7f7f7;
+            border-radius: 10px;
+        }
 
-    .app {
-      background: #fff;
-      border: 1px solid #e5e5e5;
-      border-radius: 10px;
-      padding: 28px;
-    }
+        .app-name {
+            margin: 0 0 14px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
 
-    .app-name {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
+        .app-description {
+            margin-bottom: 20px;
+        }
 
-    .links {
-      margin-top: 20px;
-    }
+        .features {
+            margin: 0 0 20px;
+            padding-left: 1.4em;
+        }
 
-    a {
-      color: #1769aa;
-    }
+        .features li {
+            margin-bottom: 5px;
+        }
 
-    .contact {
-      background: #fff;
-      border: 1px solid #e5e5e5;
-      border-radius: 10px;
-      padding: 28px;
-    }
+        .contact {
+            padding: 25px 28px;
+            background: #f7f7f7;
+            border-radius: 10px;
+        }
 
-    footer {
-      border-top: 1px solid #ddd;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 25px 24px 35px;
-      color: #777;
-      font-size: 0.85rem;
-    }
+        .contact p:last-child {
+            margin-bottom: 0;
+        }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 22px 18px 15px;
-      }
+        footer {
+            padding: 30px 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #e5e5e5;
+        }
 
-      .site-title {
-        font-size: 1.3rem;
-      }
+        footer .footer-links {
+            margin-top: 8px;
+        }
 
-      .language {
-        font-size: 0.82rem;
-      }
+        @media (max-width: 600px) {
+            .container {
+                width: min(100% - 30px, 900px);
+            }
 
-      .hero {
-        padding: 45px 18px 50px;
-      }
+            header {
+                padding: 50px 0 40px;
+            }
 
-      .hero h1 {
-        font-size: 2rem;
-      }
+            .brand {
+                display: block;
+            }
 
-      .hero p {
-        font-size: 1rem;
-      }
+            header h1 {
+                font-size: 1.9rem;
+            }
 
-      main {
-        padding: 0 18px 50px;
-      }
+            .language {
+                margin-top: 15px;
+            }
 
-      section {
-        margin-bottom: 45px;
-      }
+            section {
+                padding: 30px 0;
+            }
 
-      .app,
-      .contact {
-        padding: 22px;
-      }
-
-      footer {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-    }
-  </style>
+            .app,
+            .contact {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-  <p class="site-title">Poppoly Studio</p>
+    <div class="container">
+        <div class="brand">
 
-  <nav class="language" aria-label="Language">
-    <a href="../index.html">日本語</a>
-    <span> | </span>
-    <span class="current">English</span>
-  </nav>
+            <div>
+                <h1>Poppoly Studio</h1>
+                <p class="tagline">
+                    Creative Apps for Video and Content Creators
+                </p>
+            </div>
+
+            <div class="language">
+                <a href="/">日本語</a>
+                &nbsp;|&nbsp;
+                <a href="/en/">English</a>
+            </div>
+
+        </div>
+    </div>
 </header>
-
-
-<div class="hero">
-  <h1>Creative Apps for Video and Content Creators</h1>
-
-  <p>
-    Poppoly Studio develops practical and high-quality applications
-    designed to support video creators, animators, and other content creators.
-  </p>
-</div>
 
 
 <main>
 
-  <section>
-    <h2>About Poppoly Studio</h2>
+    <!-- About -->
 
-    <p>
-      Poppoly Studio creates simple, reliable, and useful tools
-      that can be naturally incorporated into creative workflows.
-    </p>
+    <section>
+        <div class="container">
 
-    <p>
-      Our applications are designed with a focus on practical use
-      in video production, animation, and other creative activities.
-    </p>
-  </section>
+            <h2>About Poppoly Studio</h2>
 
+            <p>
+                Poppoly Studio develops applications for
+                video production, animation,
+                and other creative fields.
+            </p>
 
-  <section>
-    <h2>Applications</h2>
+            <p>
+                We develop and provide applications designed
+                to support creators in their work,
+                with a focus on ease of use in
+                creative production environments.
+            </p>
 
-    <div class="app">
-
-      <p class="app-name">Timecode Stopwatch</p>
-
-      <p>
-        <strong>Timecode Stopwatch</strong> is a professional timecode
-        stopwatch designed for video creators, animators, and content
-        production workflows.
-      </p>
-
-      <p>
-        It provides timecode-based measurement and LAP recording
-        functions for practical use in video and animation production.
-      </p>
-
-      <h3>Features</h3>
-
-      <ul>
-        <li>Timecode display for 24, 25, 30, 50, and 60 fps</li>
-        <li>NTSC Drop-Frame Timecode support for 29.97 and 59.94 fps</li>
-        <li>PAL and integer frame-rate support</li>
-        <li>LAP recording</li>
-        <li>Timecode-based time and frame measurement</li>
-        <li>Start and Reset button position switching</li>
-        <li>Japanese and English user interface</li>
-      </ul>
-
-      <p>
-        <strong>Platform:</strong> Android
-      </p>
-
-    </div>
-  </section>
+        </div>
+    </section>
 
 
-  <section>
-    <h2>Privacy Policy</h2>
+    <!-- Applications -->
 
-    <p>
-      For information about how Timecode Stopwatch handles
-      data and third-party services, please see our Privacy Policy.
-    </p>
+    <section>
+        <div class="container">
 
-    <p class="links">
-      <a href="../privacy-en.html">
-        Privacy Policy
-      </a>
-    </p>
-  </section>
+            <h2>Applications</h2>
+
+            <div class="app">
+
+                <p class="app-name">
+                    Timecode Stopwatch
+                </p>
+
+                <p class="app-description">
+                    Timecode Stopwatch is a professional
+                    timecode stopwatch application
+                    designed for video creators.
+                </p>
+
+                <p>
+                    It supports tasks that require
+                    frame-based time measurement,
+                    including video editing, animation,
+                    filming, and storyboard production.
+                </p>
+
+                <h3>Features</h3>
+
+                <ul class="features">
+                    <li>24 / 25 / 30 / 50 / 60 fps</li>
+                    <li>NTSC Drop-Frame Timecode</li>
+                    <li>LAP recording</li>
+                    <li>Timecode-based time measurement</li>
+                    <li>Japanese / English interface</li>
+                </ul>
+
+                <p>
+                    <strong>Platform:</strong> Android
+                </p>
+
+                <p>
+                    An iOS version is planned for a future release.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
 
 
-  <section>
-    <h2>Contact</h2>
+    <!-- Privacy -->
 
-    <div class="contact">
+    <section>
+        <div class="container">
 
-      <p>
-        If you have any questions or inquiries regarding
-        Poppoly Studio or Timecode Stopwatch, please contact us
-        by email.
-      </p>
+            <h2>Privacy Policy</h2>
 
-      <p>
-        <strong>Poppoly Studio</strong><br>
-        <a href="mailto:support@poppolystudio.com">
-          support@poppolystudio.com
-        </a>
-      </p>
+            <p>
+                Please see the following privacy policies
+                for information about how Poppoly Studio
+                handles user information in its applications.
+            </p>
 
-    </div>
-  </section>
+            <p>
+                <a href="/privacy.html">
+                    Privacy Policy (Japanese)
+                </a>
+            </p>
+
+            <p>
+                <a href="/privacy-en.html">
+                    Privacy Policy (English)
+                </a>
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- Contact -->
+
+    <section>
+        <div class="container">
+
+            <h2>Contact</h2>
+
+            <div class="contact">
+
+                <p>
+                    <strong>Organization</strong><br>
+                    Poppoly Studio
+                </p>
+
+                <p>
+                    <strong>Email</strong><br>
+                    <a href="mailto:support@poppolystudio.com">
+                        support@poppolystudio.com
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+    </section>
 
 </main>
 
 
 <footer>
-  &copy; 2026 Poppoly Studio. All rights reserved.
+    <div class="container">
+
+        <p>
+            &copy; 2026 Poppoly Studio. All rights reserved.
+        </p>
+
+        <div class="footer-links">
+            <a href="/privacy-en.html">
+                Privacy Policy
+            </a>
+        </div>
+
+    </div>
 </footer>
 
 </body>
